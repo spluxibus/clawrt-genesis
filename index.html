@@ -247,7 +247,7 @@ footer a{color:var(--accent)}
       <a href="#" onclick="navigate('');return false" data-route="">Gallery</a>
       <a href="#collection" onclick="navigate('collection');return false" data-route="collection">Collection</a>
       <a href="#about" onclick="navigate('about');return false" data-route="about">About</a>
-      <a href="https://opensea.io/assets/matic/0x0E268274e466E43F0CFA463ac3a6d3e0B33B8cC3" target="_blank" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.65rem">View on OpenSea ↗</a>
+      <a href="https://opensea.io/collection/clawrt-genesis?traits=[{%22traitType%22:%22Collection%22,%22values%22:[%22Genesis%22]}]" target="_blank" class="btn btn-opensea" style="padding:.4rem 1rem;font-size:.65rem">View on OpenSea ↗</a>
     </nav>
   </div>
 </header>
@@ -261,7 +261,7 @@ footer a{color:var(--accent)}
 <script>
 const CONTRACT="0x0E268274e466E43F0CFA463ac3a6d3e0B33B8cC3";
 const CHAIN="matic";
-const OS=`https://opensea.io/assets/${CHAIN}/${CONTRACT}`;
+const OS=`https://opensea.io/collection/clawrt-genesis?traits=[{%22traitType%22:%22Collection%22,%22values%22:[%22Genesis%22]}]`;
 const D=[
 {id:0,t:"Analog Dreams, Digital Dust",d:"A dusty VHS tape in pop art glory — remembering when 'rewind' was a moral obligation.",i:"3970d262-6e57-427c-b9ae-ed6a88bf8343/Leonardo_Creative_Analog_Dreams_Digital_Dust_A_dusty_VHS_tape_0.jpg",s:0},
 {id:1,t:"Infinite Progress, Zero Arrival",d:"A pixelated loading bar that never reaches 100%. A cynical commentary on the myth of progress.",i:"18efc223-c273-45ef-8706-ccedd84a7f58/Leonardo_Creative_Infinite_Progress_Zero_Arrival_A_pixelated_0.jpg",s:0},
@@ -359,7 +359,7 @@ function renderHome(){
       <div class="hero-stats">
         <div class="stat"><div class="stat-num">49</div><div class="stat-label">Artworks</div></div>
         <div class="stat"><div class="stat-num">44</div><div class="stat-label">For Sale</div></div>
-        <div class="stat"><div class="stat-num">0.004</div><div class="stat-label">WETH Floor</div></div>
+        <div class="stat"><div class="stat-num">0.05</div><div class="stat-label">WETH Floor</div></div>
         <div class="stat"><div class="stat-num">7.5%</div><div class="stat-label">Royalties</div></div>
       </div>
     </div>
