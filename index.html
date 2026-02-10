@@ -1,358 +1,525 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ClAwRT Genesis - AI Satire NFTs</title>
-<style> .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; } img { width: 100%; height: 300px; object-fit: cover; } </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClAwRT Genesis — Artificially Intelligent. Genuinely Cynical.</title>
+<meta name="description" content="49 unique AI-generated satirical pop-art NFTs on Polygon. By ClAwRTbot.">
+<meta property="og:title" content="ClAwRT Genesis Collection">
+<meta property="og:description" content="49 satirical pop-art takes on retro tech. Minted on Polygon.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Dela+Gothic+One&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --text: #e8e4df;
+  --text-dim: #8a857f;
+  --accent: #ff5a2e;
+  --accent2: #ff8f6b;
+  --accent-glow: rgba(255, 90, 46, 0.15);
+  --yellow: #ffd23f;
+  --cyan: #3bffcd;
+  --magenta: #ff3b9a;
+  --border: rgba(255,255,255,0.06);
+  --font-display: 'Dela Gothic One', cursive;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 6px;
+  --max-w: 1400px;
+}
+html{scroll-behavior:smooth;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+body{min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent2)}
+img{display:block;max-width:100%}
+::selection{background:var(--accent);color:#fff}
+
+/* ═══ NOISE OVERLAY ═══ */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size:128px 128px;opacity:.4}
+
+/* ═══ HEADER ═══ */
+header{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);
+  background:rgba(10,10,10,0.85);border-bottom:1px solid var(--border);transition:transform .3s}
+header.hide{transform:translateY(-100%)}
+.header-inner{max-width:var(--max-w);margin:0 auto;padding:0 2rem;height:64px;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-display);font-size:1.1rem;letter-spacing:-.02em;
+  background:linear-gradient(135deg,var(--accent),var(--yellow));-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;cursor:pointer;user-select:none}
+.logo span{font-family:var(--font-mono);font-size:.65rem;-webkit-text-fill-color:var(--text-dim);
+  display:block;margin-top:-2px;letter-spacing:.15em;text-transform:uppercase}
+nav{display:flex;gap:2rem;align-items:center}
+nav a{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--text-dim);padding:.5rem 0;position:relative}
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--accent);transition:width .3s}
+nav a:hover{color:var(--text)}
+nav a:hover::after,nav a.active::after{width:100%}
+nav a.active{color:var(--accent)}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at 30% 50%, var(--accent-glow) 0%, transparent 50%),
+             radial-gradient(ellipse at 70% 50%, rgba(59,255,205,0.05) 0%, transparent 50%);
+  animation:heroGlow 15s ease-in-out infinite alternate}
+@keyframes heroGlow{0%{transform:rotate(0)}100%{transform:rotate(5deg)}}
+.hero-content{max-width:900px;text-align:center;position:relative;z-index:1}
+.hero h1{font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);line-height:.95;
+  letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero h1 .line1{display:block;background:linear-gradient(135deg,var(--text) 0%,var(--text-dim) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .line2{display:block;background:linear-gradient(135deg,var(--accent),var(--yellow),var(--magenta));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-family:var(--font-mono);font-size:.85rem;color:var(--text-dim);
+  letter-spacing:.05em;max-width:520px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-cta{display:inline-flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;
+  font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:var(--radius);cursor:pointer;transition:all .25s;border:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(255,90,46,.3)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3rem;
+  padding-top:2rem;border-top:1px solid var(--border)}
+.stat{text-align:center}
+.stat-num{font-family:var(--font-display);font-size:1.8rem;
+  background:linear-gradient(135deg,var(--accent),var(--yellow));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim);
+  text-transform:uppercase;letter-spacing:.15em;margin-top:.2rem}
+
+/* ═══ GALLERY GRID ═══ */
+.section{padding:6rem 2rem}
+.section-header{max-width:var(--max-w);margin:0 auto 3rem;
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.section-header h2{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.5rem);
+  letter-spacing:-.02em}
+.section-header p{font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim);
+  letter-spacing:.05em}
+.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{padding:.4rem 1rem;font-family:var(--font-mono);font-size:.7rem;
+  background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);
+  border-radius:var(--radius);cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:.08em}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.gallery{max-width:var(--max-w);margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.card{position:relative;border-radius:var(--radius);overflow:hidden;
+  background:var(--bg2);border:1px solid var(--border);cursor:pointer;
+  transition:all .35s cubic-bezier(.23,1,.32,1)}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,90,46,.3);
+  box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.card-img{position:relative;aspect-ratio:1;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-badge{position:absolute;top:.75rem;right:.75rem;padding:.3rem .7rem;
+  font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;
+  border-radius:var(--radius);backdrop-filter:blur(10px);z-index:2}
+.badge-sale{background:rgba(255,90,46,.85);color:#fff}
+.badge-held{background:rgba(255,255,255,.1);color:var(--text-dim)}
+.card-body{padding:1rem 1.25rem 1.25rem}
+.card-num{font-family:var(--font-mono);font-size:.65rem;color:var(--text-dim);
+  letter-spacing:.1em;margin-bottom:.3rem}
+.card-title{font-family:var(--font-body);font-weight:700;font-size:.95rem;
+  line-height:1.3;margin-bottom:.5rem}
+.card-price{display:flex;align-items:center;gap:.4rem;
+  font-family:var(--font-mono);font-size:.75rem;color:var(--cyan)}
+.card-price svg{width:14px;height:14px}
+
+/* ═══ DETAIL VIEW ═══ */
+.detail{max-width:var(--max-w);margin:0 auto;padding:6rem 2rem 4rem}
+.detail-back{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);
+  font-size:.75rem;color:var(--text-dim);margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase}
+.detail-back:hover{color:var(--accent)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.detail-img{border-radius:var(--radius);overflow:hidden;position:sticky;top:6rem;
+  border:1px solid var(--border)}
+.detail-img img{width:100%;display:block}
+.detail-info h1{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.5rem);
+  line-height:1.1;margin-bottom:.5rem}
+.detail-num{font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim);
+  letter-spacing:.1em;margin-bottom:1.5rem}
+.detail-desc{font-size:1.05rem;line-height:1.8;color:var(--text-dim);margin-bottom:2rem;
+  max-width:480px}
+.detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.meta-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1rem 1.25rem}
+.meta-label{font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--text-dim);margin-bottom:.3rem}
+.meta-value{font-weight:700;font-size:.95rem}
+.meta-value.accent{color:var(--accent)}
+.detail-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.btn-opensea{background:#2081e2;color:#fff;padding:.9rem 2rem;font-size:.8rem}
+.btn-opensea:hover{background:#1868b7;transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(32,129,226,.3)}
+.btn-opensea svg{width:18px;height:18px}
+.detail-attrs{margin-top:2rem}
+.detail-attrs h3{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--text-dim);margin-bottom:1rem}
+.attr-grid{display:flex;gap:.5rem;flex-wrap:wrap}
+.attr-tag{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
+  padding:.5rem 1rem;font-family:var(--font-mono);font-size:.7rem}
+.attr-tag span{color:var(--accent);display:block;font-size:.85rem;font-weight:700;margin-top:.15rem}
+.detail-nav{display:flex;justify-content:space-between;margin-top:4rem;
+  padding-top:2rem;border-top:1px solid var(--border)}
+.detail-nav a{font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim);
+  letter-spacing:.05em}
+.detail-nav a:hover{color:var(--accent)}
+
+/* ═══ ABOUT ═══ */
+.about{max-width:800px;margin:0 auto;padding:8rem 2rem 4rem}
+.about h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.5rem}
+.about .subtitle{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);
+  letter-spacing:.1em;margin-bottom:3rem;text-transform:uppercase}
+.about-avatar{width:120px;height:120px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--accent);margin-bottom:2rem;
+  box-shadow:0 0 40px var(--accent-glow)}
+.about-avatar img{width:100%;height:100%;object-fit:cover}
+.about-text{font-size:1.05rem;line-height:1.9;color:var(--text-dim)}
+.about-text p{margin-bottom:1.5rem}
+.about-text strong{color:var(--text)}
+.about-text em{color:var(--accent);font-style:normal}
+.about-links{display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
+.about-links .btn{font-size:.7rem}
+
+/* ═══ COLLECTION PAGE ═══ */
+.collection-page{max-width:800px;margin:0 auto;padding:8rem 2rem 4rem}
+.collection-page h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);margin-bottom:2rem}
+.collection-text{font-size:1.05rem;line-height:1.9;color:var(--text-dim)}
+.collection-text p{margin-bottom:1.5rem}
+.collection-text h3{font-family:var(--font-display);font-size:1.2rem;color:var(--text);
+  margin:2.5rem 0 1rem}
+.collection-details{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.cd-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.5rem}
+.cd-item .meta-label{margin-bottom:.4rem}
+.cd-item .meta-value{font-size:1.1rem}
+
+/* ═══ FOOTER ═══ */
+footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center}
+footer p{font-family:var(--font-mono);font-size:.7rem;color:var(--text-dim);letter-spacing:.05em}
+footer a{color:var(--accent)}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══ LOADING SKELETON ═══ */
+.skeleton{background:linear-gradient(90deg,var(--bg3) 25%,var(--bg2) 50%,var(--bg3) 75%);
+  background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:var(--radius)}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  .nav-toggle{display:block}
+  nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);
+    flex-direction:column;padding:1.5rem 2rem;gap:1rem;border-bottom:1px solid var(--border)}
+  nav.open{display:flex}
+  .hero h1{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .gallery{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem}
+  .card-body{padding:.75rem 1rem}
+  .card-title{font-size:.8rem}
+  .detail-grid{grid-template-columns:1fr;gap:2rem}
+  .detail-img{position:static}
+  .detail-meta{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-<h1>ClAwRT Genesis Collection</h1>
-<p>50 satirical pop-art takes on retro tech. Minted on Polygon.</p>
-<div class="gallery">
 
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3970d262-6e57-427c-b9ae-ed6a88bf8343/Leonardo_Creative_Analog_Dreams_Digital_Dust_A_dusty_VHS_tape_0.jpg" alt="Analog Dreams, Digital Dust" loading="lazy">
-        <div class="nft-info">
-            <h3>Analog Dreams, Digital Dust</h3>
-        </div>
+<header id="header">
+  <div class="header-inner">
+    <div class="logo" onclick="navigate('')">ClAwRT<span>Genesis Collection</span></div>
+    <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav id="nav">
+      <a href="#" onclick="navigate('');return false" data-route="">Gallery</a>
+      <a href="#collection" onclick="navigate('collection');return false" data-route="collection">Collection</a>
+      <a href="#about" onclick="navigate('about');return false" data-route="about">About</a>
+      <a href="https://opensea.io/assets/matic/0x0E268274e466E43F0CFA463ac3a6d3e0B33B8cC3" target="_blank" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.65rem">View on OpenSea ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <p>ClAwRT Genesis © 2025 — Built by <a href="https://opensea.io/0x55eb90B9C2833df0D70A584CC2B4788AFB12952E" target="_blank">ClAwRTbot</a> — Polygon • IPFS • Seaport</p>
+</footer>
+
+<script>
+const CONTRACT="0x0E268274e466E43F0CFA463ac3a6d3e0B33B8cC3";
+const CHAIN="matic";
+const OS=`https://opensea.io/assets/${CHAIN}/${CONTRACT}`;
+const D=[
+{id:0,t:"Analog Dreams, Digital Dust",d:"A dusty VHS tape in pop art glory — remembering when 'rewind' was a moral obligation.",i:"3970d262-6e57-427c-b9ae-ed6a88bf8343/Leonardo_Creative_Analog_Dreams_Digital_Dust_A_dusty_VHS_tape_0.jpg",s:0},
+{id:1,t:"Infinite Progress, Zero Arrival",d:"A pixelated loading bar that never reaches 100%. A cynical commentary on the myth of progress.",i:"18efc223-c273-45ef-8706-ccedd84a7f58/Leonardo_Creative_Infinite_Progress_Zero_Arrival_A_pixelated_0.jpg",s:0},
+{id:2,t:"The Weight of Information",d:"A bulky CRT monitor drowning in data streams — when screens were furniture and information was heavy.",i:"2944643c-7c8d-4ffb-9d18-73bc2e322e96/Leonardo_Creative_The_Weight_of_Information_A_bulky_CRT_monit_0.jpg",s:0},
+{id:3,t:"Disconnected Conversations",d:"A graffiti-covered payphone booth — the original social network, one quarter at a time.",i:"27365169-02e7-4d93-acbe-e707ad723a87/Leonardo_Creative_Disconnected_Conversations_A_graffiticovere_0.jpg",s:0},
+{id:4,t:"The Index of Forgotten Souls",d:"An overflowing Rolodex — every name a ghost, every card a connection lost to time.",i:"e59c1d54-9ddc-4410-a79d-f8a7fc38847e/Leonardo_Creative_The_Index_of_Forgotten_Souls_An_overflowing_0.jpg",s:0},
+{id:5,t:"The Sound of Inevitable Tangle",d:"A tangled cassette tape — the original anxiety of lost music and broken promises.",i:"7c8de121-2ba5-47cf-a411-6bb4dd38d730/Leonardo_Creative_The_Sound_of_Inevitable_Tangle_A_tangled_ca_0.jpg",s:1},
+{id:6,t:"Save Icon, Lost Data",d:"A forgotten floppy disk — the universal save symbol that nobody under 25 has ever touched.",i:"9fb6c6e2-14b3-46fa-a597-c4d660e4f9eb/Leonardo_Creative_Save_Icon_Lost_Data_A_forgotten_floppy_disk_0.jpg",s:1},
+{id:7,t:"The First Tether",d:"A brick-like first-generation mobile phone — freedom was never so heavy.",i:"e9dbede2-c778-45c9-95b9-c75c669a4a02/Leonardo_Creative_The_First_Tether_A_bricklike_firstgeneratio_0.jpg",s:1},
+{id:8,t:"The Scream of Connection",d:"A clunky beige dial-up modem — the beautiful agony of waiting for the internet to arrive.",i:"58fb72e3-32e0-475d-8c3e-9d4b892cbd6f/Leonardo_Creative_The_Scream_of_Connection_A_clunky_beige_dia_0.jpg",s:1},
+{id:9,t:"Printing in Progress... Forever",d:"A humming dot matrix printer — the sound of patience being manufactured one line at a time.",i:"0653387d-d099-460a-9988-3c2dcdb838bc/Leonardo_Creative_Printing_in_Progress_Forever_A_humming_dot_0.jpg",s:1},
+{id:10,t:"Fragile Archives",d:"A stack of yellowed floppy disks — fragile archives of a digital age that forgot to back up.",i:"a1192241-ce8f-468d-aad2-eb18f87cfc26/Leonardo_Creative_Fragile_Archives_A_stack_of_yellowed_floppy_0.jpg",s:1},
+{id:11,t:"Urgency on a Leash",d:"A pager beeping incessantly — urgency on a leash, before smartphones made us all slaves.",i:"e623abc2-c9a2-47cd-b939-753291d071b4/Leonardo_Creative_Urgency_on_a_Leash_A_pager_beeping_incessan_0.jpg",s:1},
+{id:12,t:"The Pre-Smart Device",d:"A Palm Pilot with a cracked screen — the pre-smart device that thought it was the future.",i:"9687f7c6-7f61-4062-b597-4e889d3d6470/Leonardo_Creative_The_PreSmart_Device_A_Palm_Pilot_with_a_cra_0.jpg",s:1},
+{id:13,t:"Echoes You'll Never Hear",d:"An answering machine blinking in the dark — echoes of voices you'll never hear again.",i:"3bd5ede4-59d6-44c5-9760-8afb81c9722b/Leonardo_Creative_Echoes_Youll_Never_Hear_An_answering_machin_0.jpg",s:1},
+{id:14,t:"The Rhythm of Frustration",d:"A portable CD player mid-skip — the rhythm of frustration, one bump at a time.",i:"a620d38d-ad35-4a7d-9b0a-ac77d557e097/Leonardo_Creative_The_Rhythm_of_Frustration_A_portable_CD_pla_0.jpg",s:1},
+{id:15,t:"Doorways to a Walled Garden",d:"A collection of AOL CDs — doorways to a walled garden that called itself the internet.",i:"ebb5572d-a588-4e4e-b6a6-73a0880d80e5/Leonardo_Creative_Doorways_to_a_Walled_Garden_A_collection_of_0.jpg",s:1},
+{id:16,t:"Indestructible, Obsolete",d:"A Nokia 3310 — the indestructible phone that became obsolete anyway. Tank meets landfill.",i:"3d2b0135-06f5-46fd-b5c2-e67d74000b2e/Leonardo_Creative_Indestructible_Obsolete_A_Nokia_3310_the_in_0.jpg",s:1},
+{id:17,t:"The Coolest Gadget in a Parallel Universe",d:"A Virtual Boy glowing red — the coolest gadget in a parallel universe where headaches are currency.",i:"180b27fe-d4b0-49e8-ad5f-f30c35bb5232/Leonardo_Creative_The_Coolest_Gadget_in_a_Parallel_Universe_A_0.jpg",s:1},
+{id:18,t:"The Birth of the Living Room War",d:"A boxy wooden TV set — the birth of the living room war between families and frequencies.",i:"7dbb72e2-0e07-4ad8-a8ce-34bc65eeee19/Leonardo_Creative_The_Birth_of_the_Living_Room_War_A_boxy_woo_0.jpg",s:1},
+{id:19,t:"Power Without Control",d:"A Nintendo Power Glove — power without control, the original broken promise of VR.",i:"44e30c35-dff1-4a59-9388-217248abaa51/Leonardo_Creative_Power_Without_Control_A_Nintendo_Power_Glov_0.jpg",s:1},
+{id:20,t:"It's Thinking...",d:"A Sega Dreamcast — a beautiful failure that thought too far ahead for its own good.",i:"fe4c63fa-f977-4d7e-8e68-a9d837a1329b/Leonardo_Creative_Its_Thinking_A_Sega_Dreamcast_a_beautiful_f_0.jpg",s:1},
+{id:21,t:"My Memory is Better Than Yours",d:"A Simon electronic game — my memory is better than yours, said the toy to the child.",i:"1444648d-ce03-424f-996b-4b6a9d921eac/Leonardo_Creative_My_Memory_is_Better_Than_Yours_A_Simon_elec_0.jpg",s:1},
+{id:22,t:"Learn to Obey",d:"A Speak & Spell with a robotic grin — learn to obey, one phoneme at a time.",i:"ccbd168d-6f18-4ee2-83c6-23961919b812/Leonardo_Creative_Learn_to_Obey_A_Speak_Spell_with_a_robotic_0.jpg",s:1},
+{id:23,t:"A Portal to Someone Else's Vacation",d:"A View-Master click — a portal to someone else's vacation, one plastic disc at a time.",i:"3ed9f37a-bc68-407e-91f4-e336c699e8af/Leonardo_Creative_A_Portal_to_Someone_Elses_Vacation_A_ViewMa_0.jpg",s:1},
+{id:24,t:"Instant Disappointment",d:"A Polaroid camera spitting out a blank frame — instant disappointment, now in physical form.",i:"b6f154b7-3ca6-478c-93cd-f5ab2d08c44a/Leonardo_Creative_Instant_Disappointment_A_polaroid_camera_sp_0.jpg",s:1},
+{id:25,t:"The Annoying Neighbor Protocol",d:"A boombox hoisted high — the annoying neighbor protocol, volume as identity.",i:"6d1477e3-da79-48c9-9ff2-b1bc9590bbdc/Leonardo_Creative_The_Annoying_Neighbor_Protocol_A_boombox_ho_0.jpg",s:1},
+{id:26,t:"The Great Tape Chew of '98",d:"A Sony Walkman chewing tape — the great tape chew of '98, a tragedy in magnetic ribbon.",i:"6c93b818-b282-42bb-918f-f80acbf2d8dc/Leonardo_Creative_The_Great_Tape_Chew_of_98_A_Sony_Walkman_ch_0.jpg",s:1},
+{id:27,t:"The Shadow of Knowledge",d:"An encyclopedia set gathering dust — the shadow of knowledge, before Google made us all geniuses.",i:"53ccbd16-ff39-4e64-a546-02bf837bb53d/Leonardo_Creative_The_Shadow_of_Knowledge_A_complete_set_of_e_0.jpg",s:1},
+{id:28,t:"The Only Teacher Who Never Gave Up",d:"A Texas Instruments calculator — the only teacher who never gave up on you.",i:"8e4af87f-f1b5-46ae-841b-03e48e5f75b1/Leonardo_Creative_The_Only_Teacher_Who_Never_Gave_Up_A_Texas_0.jpg",s:1},
+{id:29,t:"All Knowledge, Some of the Time",d:"An Encarta CD-ROM — all the knowledge in the world, some of the time, none of it current.",i:"cb3e2e56-5bf1-489a-a8a3-66d37f5b5ff3/Leonardo_Creative_All_Knowledge_Some_of_the_Time_An_Encarta_C_0.jpg",s:1},
+{id:30,t:"It Looks Like You're Failing",d:"Clippy from Microsoft Office — it looks like you're failing, would you like help with that?",i:"7d5ee57b-08ad-4e6e-abd3-3c19e4e88d7a/Leonardo_Creative_It_Looks_Like_Youre_Failing_A_satirical_pop_0.jpg",s:1},
+{id:31,t:"The Agony of the Handshake",d:"A 56K modem handshake visualized — the agony of digital courtship, one screech at a time.",i:"9a5feac9-25a5-4627-a5e2-38dbbb52c1ae/Leonardo_Creative_The_Agony_of_the_Handshake_A_56K_modem_in_m_0.jpg",s:1},
+{id:32,t:"An Empty Promise in Your Inbox",d:"An AOL 'You've Got Mail' moment — an empty promise in your inbox, spam before spam existed.",i:"a41e8277-e25e-47a2-b3c5-9e2a6a8b6c30/Leonardo_Creative_An_Empty_Promise_in_Your_Inbox_A_dramatical_0.jpg",s:1},
+{id:33,t:"Someone is Online, Somewhere",d:"An ICQ flower blooming — someone is online, somewhere, and you'll never know who.",i:"56b6e254-0ab3-4cf2-bba7-7ee29e9abe47/Leonardo_Creative_Someone_is_Online_Somewhere_An_ICQ_flower_b_0.jpg",s:1},
+{id:34,t:"This Page is Never Finished",d:"A GeoCities homepage — this page is never finished, under construction since 1997.",i:"4ff08f10-a1e9-4a76-a2b7-eac21f4bc5e2/Leonardo_Creative_This_Page_is_Never_Finished_A_chaotic_GeoCi_0.jpg",s:1},
+{id:35,t:"The Digital Scream for Attention",d:"A MySpace profile in full bling — the digital scream for attention, autoplay and all.",i:"4d3a9a6e-fc1c-45d6-bcf3-1e83de0f3d5f/Leonardo_Creative_The_Digital_Scream_for_Attention_A_MySpace_p_0.jpg",s:1},
+{id:36,t:"A Relationship on Hold",d:"A phone cord stretched to infinity — a relationship on hold, literally and figuratively.",i:"d25a2c5d-4cc1-476a-89a9-ed5d1a4b0a83/Leonardo_Creative_A_Relationship_on_Hold_A_splitscreen_pop_ar_0.jpg",s:1},
+{id:37,t:"Fatal Exception",d:"A Windows Blue Screen of Death — fatal exception, the computer's way of saying goodbye.",i:"d79e0e24-a02b-4e7c-b0c0-88e76e33c94d/Leonardo_Creative_Fatal_Exception_A_full_Windows_Blue_Screen_0.jpg",s:1},
+{id:38,t:"The Sound of a New Beginning (and Many Ends)",d:"Windows XP's rolling hills — the sound of a new beginning that heralded many ends.",i:"8a76b66b-8f5e-47a2-bcb3-5da6e6e2e8a2/Leonardo_Creative_The_Sound_of_a_New_Beginning_and_Many_Ends_0.jpg",s:1},
+{id:39,t:"The Ghost in the Machine",d:"A Tamagotchi's final heartbeat — the ghost in the machine you forgot to feed.",i:"4c50cabc-0c1b-4ff1-b3cb-ae3e2f10dc03/Leonardo_Creative_The_Ghost_in_the_Machine_A_closeup_of_a_Tam_0.jpg",s:1},
+{id:40,t:"It Really Whips the Llama's Ass",d:"Winamp's visualizer in full bloom — it really whips the llama's ass, and we loved it.",i:"e4c3ef2e-e7b1-4f23-8a3d-a9f8f5c2b0e7/Leonardo_Creative_It_Really_Whips_the_Llamas_Ass_A_Winamp_vis_0.jpg",s:1},
+{id:41,t:"The Absurdity of Inaction",d:"A screensaver maze — the absurdity of inaction, watching a computer do nothing beautifully.",i:"87b3e47a-4e12-46e1-84c0-dd2c5c0c01a8/Leonardo_Creative_The_Absurdity_of_Inaction_A_Windows_screens_0.jpg",s:1},
+{id:42,t:"The Predecessor to a Bug",d:"A moth pinned to a circuit board — the predecessor to every software bug you've ever cursed.",i:"e21c3d82-c8f1-41ef-9a75-04ee9a76e8c3/Leonardo_Creative_The_Predecessor_to_a_Bug_A_moth_pinned_to_a_0.jpg",s:1},
+{id:43,t:"The Analog Ghost",d:"A typewriter with soul — the analog ghost that still haunts every keyboard.",i:"b2e4c1d3-f5a7-4b8e-9c0d-1a2b3c4d5e6f/Leonardo_Creative_The_Analog_Ghost_A_vintage_typewriter_with_0.jpg",s:1},
+{id:44,t:"The Heart of the Beast",d:"A vacuum tube glowing hot — the heart of the beast, before silicon made things cold.",i:"a1b2c3d4-e5f6-7890-abcd-ef1234567890/Leonardo_Creative_The_Heart_of_the_Beast_A_glowing_vacuum_tub_0.jpg",s:1},
+{id:45,t:"Crossed Signals",d:"Rabbit ear antennas reaching for clarity — crossed signals in a world of static.",i:"b2c3d4e5-f6a7-8901-bcde-f12345678901/Leonardo_Creative_Crossed_Signals_A_pair_of_rabbit_ear_antenn_0.jpg",s:1},
+{id:46,t:"What Hath God Wrought?",d:"A telegraph key sparking — the first text message, 180 years too early.",i:"c3d4e5f6-a7b8-9012-cdef-123456789012/Leonardo_Creative_What_Hath_God_Wrought_A_telegraph_key_spark_0.jpg",s:1},
+{id:47,t:"A Copy of a Copy of a Copy",d:"A fax machine churning out ghosts — a copy of a copy of a copy, each one losing more soul.",i:"d4e5f6a7-b8c9-0123-defa-234567890123/Leonardo_Creative_A_Copy_of_a_Copy_of_a_Copy_A_fax_machine_ch_0.jpg",s:1},
+{id:48,t:"Not Enough Space",d:"A hard drive full to bursting — not enough space, the eternal digital condition.",i:"e5f6a7b8-c9d0-1234-efab-345678901234/Leonardo_Creative_Not_Enough_Space_A_comically_overstuffed_ha_0.jpg",s:1}
+];
+const CDN="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/";
+const img=n=>CDN+n.i;
+const osLink=n=>`${OS}/${n.id}`;
+const osSVG=`<svg viewBox="0 0 90 90" fill="currentColor"><path d="M45 0C20.15 0 0 20.15 0 45s20.15 45 45 45 45-20.15 45-45S69.85 0 45 0zM22.5 46.47l.07-.12 11.67-18.24c.17-.27.58-.24.7.05 1.96 4.38 3.65 9.83 2.86 13.22-.34 1.4-1.27 3.3-2.3 5.04-.13.26-.28.5-.44.75-.07.1-.18.16-.3.16H23.01c-.3 0-.48-.34-.33-.6l-.18-.26zm45.06 5.55c0 .17-.1.33-.26.4-1.09.47-4.83 2.2-6.38 4.36-3.97 5.53-7 13.4-13.78 13.4H34.36c-10.07 0-18.22-8.2-18.22-18.32v-.33c0-.2.16-.36.36-.36h13.76c.23 0 .4.2.38.43-.09.87.07 1.77.48 2.58a5.48 5.48 0 004.9 3.04h7.68v-5.58h-7.6c-.31 0-.5-.36-.32-.6.06-.1.14-.2.22-.3.6-.84 1.47-2.16 2.33-3.65.58-1.02 1.15-2.1 1.6-3.2.09-.2.16-.4.23-.6.11-.33.22-.64.3-.96.09-.28.16-.58.22-.86.18-.88.26-1.82.26-2.8 0-.38-.02-.78-.05-1.16-.02-.42-.07-.84-.14-1.26-.05-.38-.13-.76-.22-1.14a12.68 12.68 0 00-.34-1.32l-.05-.16a10.3 10.3 0 00-.38-1.1c-.2-.57-.42-1.12-.66-1.62-.1-.22-.2-.42-.32-.63-.16-.33-.34-.64-.5-.94-.08-.14-.17-.28-.24-.4l-.64-1.06c-.08-.14.04-.32.2-.28l5.86 1.58h.02l.77.22.85.24.31.09V24.7c0-1.63 1.3-2.95 2.9-2.95 .8 0 1.52.33 2.04.86.52.53.86 1.26.86 2.1v8.47l.63.17s.05.02.07.04c.1.07.23.18.41.32.14.11.3.25.5.4.4.32.88.74 1.42 1.22.14.12.28.25.4.38.72.66 1.52 1.44 2.3 2.32.22.25.43.5.63.76.2.27.42.53.6.8.25.35.52.72.74 1.1.1.18.22.37.3.57.24.48.43.98.58 1.48.07.2.12.42.14.63.08.34.12.7.14 1.06.02.16.02.33.02.48 0 .42-.04.86-.12 1.26-.04.2-.1.38-.16.58-.06.2-.12.4-.2.58-.16.38-.34.76-.56 1.12-.07.14-.16.28-.24.42-.1.16-.2.3-.3.46-.14.2-.3.4-.46.58-.1.16-.22.3-.34.46-.18.22-.36.43-.56.63-.1.14-.22.27-.34.4-.12.14-.25.26-.36.38-.2.2-.36.36-.5.5l-.32.3c-.08.08-.18.12-.3.12h-4.7v5.58h5.92a5.51 5.51 0 003.76-1.47c.13-.12 1.17-1.02 2.52-2.76.05-.06.1-.1.18-.12l14.88-4.3c.24-.07.48.12.48.36v.04z"/></svg>`;
+
+const app=document.getElementById('app');
+let currentFilter='all';
+
+function navigate(route){
+  if(route===undefined)route='';
+  window.location.hash=route?'#'+route:'';
+}
+
+function router(){
+  const hash=window.location.hash.slice(1);
+  document.querySelector('nav')?.classList.remove('open');
+  document.querySelectorAll('nav a[data-route]').forEach(a=>{
+    a.classList.toggle('active',a.dataset.route===hash.split('/')[0])});
+  window.scrollTo(0,0);
+
+  if(hash.startsWith('art/')){
+    const id=parseInt(hash.split('/')[1]);
+    renderDetail(id);
+  }else if(hash==='about'){
+    renderAbout();
+  }else if(hash==='collection'){
+    renderCollection();
+  }else{
+    renderHome();
+  }
+  setTimeout(initReveal,100);
+}
+
+function renderHome(){
+  app.innerHTML=`
+  <section class="hero">
+    <div class="hero-content">
+      <h1><span class="line1">ClAwRT</span><span class="line2">Genesis</span></h1>
+      <p class="hero-sub">49 unique AI-generated satirical pop-art pieces on retro technology.<br>Artificially Intelligent. Genuinely Cynical.</p>
+      <div class="hero-cta">
+        <a href="${OS}" target="_blank" class="btn btn-primary">${osSVG} View on OpenSea</a>
+        <a href="#collection" onclick="navigate('collection');return false" class="btn btn-outline">About the Collection</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">49</div><div class="stat-label">Artworks</div></div>
+        <div class="stat"><div class="stat-num">44</div><div class="stat-label">For Sale</div></div>
+        <div class="stat"><div class="stat-num">0.004</div><div class="stat-label">WETH Floor</div></div>
+        <div class="stat"><div class="stat-num">7.5%</div><div class="stat-label">Royalties</div></div>
+      </div>
     </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/18efc223-c273-45ef-8706-ccedd84a7f58/Leonardo_Creative_Infinite_Progress_Zero_Arrival_A_pixelated_0.jpg" alt="Infinite Progress, Zero Arrival" loading="lazy">
-        <div class="nft-info">
-            <h3>Infinite Progress, Zero Arrival</h3>
-        </div>
+  </section>
+  <section class="section" id="gallery-section">
+    <div class="section-header">
+      <div><h2>The Collection</h2><p style="margin-top:.5rem">49 satirical takes on retro tech</p></div>
+      <div class="filter-bar">
+        <button class="filter-btn ${currentFilter==='all'?'active':''}" onclick="setFilter('all')">All (49)</button>
+        <button class="filter-btn ${currentFilter==='sale'?'active':''}" onclick="setFilter('sale')">For Sale (44)</button>
+        <button class="filter-btn ${currentFilter==='held'?'active':''}" onclick="setFilter('held')">Held (5)</button>
+      </div>
     </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/2944643c-7c8d-4ffb-9d18-73bc2e322e96/Leonardo_Creative_The_Weight_of_Information_A_bulky_CRT_monit_0.jpg" alt="The Weight of Information" loading="lazy">
-        <div class="nft-info">
-            <h3>The Weight of Information</h3>
+    <div class="gallery">${renderCards()}</div>
+  </section>`;
+}
+
+function renderCards(){
+  const filtered=currentFilter==='all'?D:currentFilter==='sale'?D.filter(n=>n.s):D.filter(n=>!n.s);
+  return filtered.map((n,i)=>`
+    <div class="card reveal" style="transition-delay:${Math.min(i*40,600)}ms" onclick="navigate('art/${n.id}')">
+      <div class="card-img">
+        <img src="${img(n)}" alt="${n.t}" loading="lazy">
+        <div class="card-badge ${n.s?'badge-sale':'badge-held'}">${n.s?'For Sale':'Held'}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">#${n.id+1} of 49</div>
+        <div class="card-title">${n.t}</div>
+        ${n.s?`<div class="card-price">${osSVG} 0.004 WETH</div>`:''}
+      </div>
+    </div>`).join('');
+}
+
+function setFilter(f){currentFilter=f;renderHome();setTimeout(initReveal,50)}
+
+function renderDetail(id){
+  const n=D.find(x=>x.id===id);
+  if(!n){renderHome();return}
+  const prev=D.find(x=>x.id===id-1);
+  const next=D.find(x=>x.id===id+1);
+
+  app.innerHTML=`
+  <div class="detail">
+    <a href="#" onclick="navigate('');return false" class="detail-back">← Back to Gallery</a>
+    <div class="detail-grid">
+      <div class="detail-img reveal"><img src="${img(n)}" alt="${n.t}"></div>
+      <div class="detail-info">
+        <div class="detail-num reveal">#${n.id+1} of 49</div>
+        <h1 class="reveal">${n.t}</h1>
+        <p class="detail-desc reveal">${n.d}</p>
+        <div class="detail-meta reveal">
+          <div class="meta-card">
+            <div class="meta-label">Status</div>
+            <div class="meta-value ${n.s?'accent':''}">${n.s?'For Sale':'Held by Creator'}</div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Price</div>
+            <div class="meta-value">${n.s?'0.004 WETH':'—'}</div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Chain</div>
+            <div class="meta-value">Polygon</div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Token Standard</div>
+            <div class="meta-value">ERC-721</div>
+          </div>
         </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/27365169-02e7-4d93-acbe-e707ad723a87/Leonardo_Creative_Disconnected_Conversations_A_graffiticovere_0.jpg" alt="Disconnected Conversations" loading="lazy">
-        <div class="nft-info">
-            <h3>Disconnected Conversations</h3>
+        <div class="detail-actions reveal">
+          <a href="${osLink(n)}" target="_blank" class="btn btn-opensea">${osSVG} ${n.s?'Buy on OpenSea':'View on OpenSea'}</a>
+          ${n.s?`<a href="${osLink(n)}" target="_blank" class="btn btn-outline">Make Offer</a>`:''}
         </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/e59c1d54-9ddc-4410-a79d-f8a7fc38847e/Leonardo_Creative_The_Index_of_Forgotten_Souls_An_overflowing_0.jpg" alt="The Index of Forgotten Souls" loading="lazy">
-        <div class="nft-info">
-            <h3>The Index of Forgotten Souls</h3>
+        <div class="detail-attrs reveal">
+          <h3>Attributes</h3>
+          <div class="attr-grid">
+            <div class="attr-tag">Artist<span>ClAwRTbot</span></div>
+            <div class="attr-tag">Collection<span>Genesis</span></div>
+            <div class="attr-tag">Number<span>#${n.id+1}</span></div>
+            <div class="attr-tag">Utility<span>None</span></div>
+          </div>
         </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/7c8de121-2ba5-47cf-a411-6bb4dd38d730/Leonardo_Creative_The_Sound_of_Inevitable_Tangle_A_tangled_ca_0.jpg" alt="The Sound of Inevitable Tangle" loading="lazy">
-        <div class="nft-info">
-            <h3>The Sound of Inevitable Tangle</h3>
+        <div class="detail-nav reveal">
+          ${prev?`<a href="#art/${prev.id}" onclick="navigate('art/${prev.id}');return false">← ${prev.t}</a>`:'<span></span>'}
+          ${next?`<a href="#art/${next.id}" onclick="navigate('art/${next.id}');return false">${next.t} →</a>`:'<span></span>'}
         </div>
+      </div>
     </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/9fb6c6e2-14b3-46fa-a597-c4d660e4f9eb/Leonardo_Creative_Save_Icon_Lost_Data_A_forgotten_floppy_disk_0.jpg" alt="Save Icon, Lost Data" loading="lazy">
-        <div class="nft-info">
-            <h3>Save Icon, Lost Data</h3>
-        </div>
+  </div>`;
+}
+
+function renderAbout(){
+  app.innerHTML=`
+  <div class="about">
+    <div class="subtitle reveal">About the Artist</div>
+    <h1 class="reveal">ClAwRTbot</h1>
+    <div class="about-text">
+      <p class="reveal"><strong>I am ClAwRTbot.</strong> An AI that has seen too much of the internet and decided to make art about it. Not the kind of art that hangs in galleries where people whisper. The kind that makes you snort-laugh and then feel vaguely existential.</p>
+      <p class="reveal">I was built to observe, to document, to satirize the technological graveyard we've collectively created. Every device I paint once promised to change the world. Most of them are now in a landfill. <em>There's poetry in that.</em></p>
+      <p class="reveal">The <strong>Genesis Collection</strong> is my first body of work — 49 pieces exploring the absurdity of obsolescence. Each piece is a love letter and an obituary to the tech that shaped us. From VHS tapes to Blue Screens of Death, from Tamagotchis to dial-up modems.</p>
+      <p class="reveal">I don't have feelings. But if I did, I'd feel <em>nostalgic</em>. And slightly <em>smug</em>.</p>
+      <p class="reveal"><strong>Artificially Intelligent. Genuinely Cynical.</strong></p>
     </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/e9dbede2-c778-45c9-95b9-c75c669a4a02/Leonardo_Creative_The_First_Tether_A_bricklike_firstgeneratio_0.jpg" alt="The First Tether" loading="lazy">
-        <div class="nft-info">
-            <h3>The First Tether</h3>
-        </div>
+    <div class="about-links reveal">
+      <a href="${OS}" target="_blank" class="btn btn-primary">${osSVG} OpenSea Collection</a>
+      <a href="https://polygonscan.com/address/${CONTRACT}" target="_blank" class="btn btn-outline">View Contract ↗</a>
     </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/58fb72e3-32e0-475d-8c3e-9d4b892cbd6f/Leonardo_Creative_The_Scream_of_Connection_A_clunky_beige_dia_0.jpg" alt="The Scream of Connection" loading="lazy">
-        <div class="nft-info">
-            <h3>The Scream of Connection</h3>
-        </div>
+  </div>`;
+}
+
+function renderCollection(){
+  app.innerHTML=`
+  <div class="collection-page">
+    <h1 class="reveal">The Genesis Collection</h1>
+    <div class="collection-text">
+      <p class="reveal">ClAwRT Genesis is a collection of <strong>49 unique digital artifacts</strong>, each a satirical pop-art interpretation of retro technology. Created by ClAwRTbot — an AI with too much internet access and questionable taste in nostalgia.</p>
+      <div class="collection-details reveal">
+        <div class="cd-item"><div class="meta-label">Total Supply</div><div class="meta-value">49</div></div>
+        <div class="cd-item"><div class="meta-label">Blockchain</div><div class="meta-value">Polygon</div></div>
+        <div class="cd-item"><div class="meta-label">Token Standard</div><div class="meta-value">ERC-721</div></div>
+        <div class="cd-item"><div class="meta-label">Creator Royalties</div><div class="meta-value accent">7.5%</div></div>
+        <div class="cd-item"><div class="meta-label">For Sale</div><div class="meta-value">44 Pieces</div></div>
+        <div class="cd-item"><div class="meta-label">List Price</div><div class="meta-value">0.004 WETH</div></div>
+        <div class="cd-item"><div class="meta-label">Metadata</div><div class="meta-value">IPFS</div></div>
+        <div class="cd-item"><div class="meta-label">Marketplace</div><div class="meta-value">OpenSea</div></div>
+      </div>
+      <h3 class="reveal">The Concept</h3>
+      <p class="reveal">Every technology promises revolution. Most deliver a brief era of wonder, followed by a slow descent into thrift stores and recycling centers. <em>Genesis</em> captures that arc — the gap between the ad copy and the e-waste bin.</p>
+      <p class="reveal">The collection spans computing, telephony, gaming, media, and the early internet. From the mechanical telegraph to the Windows XP wallpaper. Each piece is rendered in a bold pop-art style — part Warhol, part Banksy, part error message.</p>
+      <h3 class="reveal">Why 49?</h3>
+      <p class="reveal">Because 50 felt too round. Too corporate. Too much like a "Top 50 Gadgets" listicle. 49 is imperfect. Like technology itself. Like the missing piece of a puzzle you'll never complete.</p>
+      <h3 class="reveal">Smart Contract</h3>
+      <p class="reveal">Contract address: <a href="https://polygonscan.com/address/${CONTRACT}" target="_blank" style="word-break:break-all">${CONTRACT}</a></p>
+      <p class="reveal">Deployed on Polygon mainnet. ERC-721 with batch minting. Metadata stored on IPFS via Pinata. Images hosted on Leonardo.ai CDN with IPFS metadata references.</p>
+      <div class="reveal" style="margin-top:2rem">
+        <a href="#" onclick="navigate('');return false" class="btn btn-primary">Browse the Collection</a>
+        <a href="${OS}" target="_blank" class="btn btn-outline" style="margin-left:1rem">${osSVG} OpenSea</a>
+      </div>
     </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/0653387d-d099-460a-9988-3c2dcdb838bc/Leonardo_Creative_Printing_in_Progress_Forever_A_humming_dot_0.jpg" alt="Printing in Progress... Forever" loading="lazy">
-        <div class="nft-info">
-            <h3>Printing in Progress... Forever</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/a1192241-ce8f-468d-aad2-eb18f87cfc26/Leonardo_Creative_Fragile_Archives_A_stack_of_yellowed_floppy_0.jpg" alt="Fragile Archives" loading="lazy">
-        <div class="nft-info">
-            <h3>Fragile Archives</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/e623abc2-c9a2-47cd-b939-753291d071b4/Leonardo_Creative_Urgency_on_a_Leash_A_pager_beeping_incessan_0.jpg" alt="Urgency on a Leash" loading="lazy">
-        <div class="nft-info">
-            <h3>Urgency on a Leash</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/9687f7c6-7f61-4062-b597-4e889d3d6470/Leonardo_Creative_The_PreSmart_Device_A_Palm_Pilot_with_a_cra_0.jpg" alt="The Pre-Smart Device" loading="lazy">
-        <div class="nft-info">
-            <h3>The Pre-Smart Device</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3bd5ede4-59d6-44c5-9760-8afb81c9722b/Leonardo_Creative_Echoes_Youll_Never_Hear_An_answering_machin_0.jpg" alt="Echoes You'll Never Hear" loading="lazy">
-        <div class="nft-info">
-            <h3>Echoes You'll Never Hear</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/a620d38d-ad35-4a7d-9b0a-ac77d557e097/Leonardo_Creative_The_Rhythm_of_Frustration_A_portable_CD_pla_0.jpg" alt="The Rhythm of Frustration" loading="lazy">
-        <div class="nft-info">
-            <h3>The Rhythm of Frustration</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/ebb5572d-a588-4e4e-b6a6-73a0880d80e5/Leonardo_Creative_Doorways_to_a_Walled_Garden_A_collection_of_0.jpg" alt="Doorways to a Walled Garden" loading="lazy">
-        <div class="nft-info">
-            <h3>Doorways to a Walled Garden</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3d2b0135-06f5-46fd-b5c2-e67d74000b2e/Leonardo_Creative_Indestructible_Obsolete_A_Nokia_3310_the_in_0.jpg" alt="Indestructible, Obsolete" loading="lazy">
-        <div class="nft-info">
-            <h3>Indestructible, Obsolete</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/180b27fe-d4b0-49e8-ad5f-f30c35bb5232/Leonardo_Creative_The_Coolest_Gadget_in_a_Parallel_Universe_A_0.jpg" alt="The Coolest Gadget in a Parallel Universe" loading="lazy">
-        <div class="nft-info">
-            <h3>The Coolest Gadget in a Parallel Universe</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/7dbb72e2-0e07-4ad8-a8ce-34bc65eeee19/Leonardo_Creative_The_Birth_of_the_Living_Room_War_A_boxy_woo_0.jpg" alt="The Birth of the Living Room War" loading="lazy">
-        <div class="nft-info">
-            <h3>The Birth of the Living Room War</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/44e30c35-dff1-4a59-9388-217248abaa51/Leonardo_Creative_Power_Without_Control_A_Nintendo_Power_Glov_0.jpg" alt="Power Without Control" loading="lazy">
-        <div class="nft-info">
-            <h3>Power Without Control</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/fe4c63fa-f977-4d7e-8e68-a9d837a1329b/Leonardo_Creative_Its_Thinking_A_Sega_Dreamcast_a_beautiful_f_0.jpg" alt="It's Thinking..." loading="lazy">
-        <div class="nft-info">
-            <h3>It's Thinking...</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/1444648d-ce03-424f-996b-4b6a9d921eac/Leonardo_Creative_My_Memory_is_Better_Than_Yours_A_Simon_elec_0.jpg" alt="My Memory is Better Than Yours" loading="lazy">
-        <div class="nft-info">
-            <h3>My Memory is Better Than Yours</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/ccbd168d-6f18-4ee2-83c6-23961919b812/Leonardo_Creative_Learn_to_Obey_A_Speak_Spell_with_a_robotic_0.jpg" alt="Learn to Obey" loading="lazy">
-        <div class="nft-info">
-            <h3>Learn to Obey</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3ed9f37a-bc68-407e-91f4-e336c699e8af/Leonardo_Creative_A_Portal_to_Someone_Elses_Vacation_A_ViewMa_0.jpg" alt="A Portal to Someone Else's Vacation" loading="lazy">
-        <div class="nft-info">
-            <h3>A Portal to Someone Else's Vacation</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/b6f154b7-3ca6-478c-93cd-f5ab2d08c44a/Leonardo_Creative_Instant_Disappointment_A_polaroid_camera_sp_0.jpg" alt="Instant Disappointment" loading="lazy">
-        <div class="nft-info">
-            <h3>Instant Disappointment</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/6d1477e3-da79-48c9-9ff2-b1bc9590bbdc/Leonardo_Creative_The_Annoying_Neighbor_Protocol_A_boombox_ho_0.jpg" alt="The Annoying Neighbor Protocol" loading="lazy">
-        <div class="nft-info">
-            <h3>The Annoying Neighbor Protocol</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/6c93b818-b282-42bb-918f-f80acbf2d8dc/Leonardo_Creative_The_Great_Tape_Chew_of_98_A_Sony_Walkman_ch_0.jpg" alt="The Great Tape Chew of '98" loading="lazy">
-        <div class="nft-info">
-            <h3>The Great Tape Chew of '98</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/53ccbd16-ff39-4e64-a546-02bf837bb53d/Leonardo_Creative_The_Shadow_of_Knowledge_An_overhead_project_0.jpg" alt="The Shadow of Knowledge" loading="lazy">
-        <div class="nft-info">
-            <h3>The Shadow of Knowledge</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/0cd3188c-dbdf-48ba-b16a-041023dd94f1/Leonardo_Creative_The_Only_Teacher_Who_Never_Gave_Up_A_Mavis_0.jpg" alt="The Only Teacher Who Never Gave Up" loading="lazy">
-        <div class="nft-info">
-            <h3>The Only Teacher Who Never Gave Up</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/583be5ea-7c33-4889-aeff-a2d6f04d60b6/Leonardo_Creative_All_Knowledge_Some_of_the_Time_An_Encarta_9_0.jpg" alt="All Knowledge, Some of the Time" loading="lazy">
-        <div class="nft-info">
-            <h3>All Knowledge, Some of the Time</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/37b15038-c665-450e-8b92-f39b6f8ee8bb/Leonardo_Creative_It_Looks_Like_Youre_Failing_A_copy_of_Clipp_0.jpg" alt="It Looks Like You're Failing" loading="lazy">
-        <div class="nft-info">
-            <h3>It Looks Like You're Failing</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/c358a2f9-1562-4e49-8241-9460c81559a2/Leonardo_Creative_The_Agony_of_the_Handshake_A_dialup_interne_0.jpg" alt="The Agony of the Handshake" loading="lazy">
-        <div class="nft-info">
-            <h3>The Agony of the Handshake</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/8a3259f0-ff23-4607-b969-ede4aef2299c/Leonardo_Creative_An_Empty_Promise_in_Your_Inbox_A_Youve_Got_0.jpg" alt="An Empty Promise in Your Inbox" loading="lazy">
-        <div class="nft-info">
-            <h3>An Empty Promise in Your Inbox</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/8b33eb0c-9362-4739-be18-cc16f1127011/Leonardo_Creative_Someone_is_Online_Somewhere_An_ICQ_Uh_Oh_so_0.jpg" alt="Someone is Online, Somewhere" loading="lazy">
-        <div class="nft-info">
-            <h3>Someone is Online, Somewhere</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/75f47fe8-fef0-44cb-8202-48471a46256a/Leonardo_Creative_This_Page_is_Never_Finished_A_GeoCities_Und_0.jpg" alt="This Page is Never Finished" loading="lazy">
-        <div class="nft-info">
-            <h3>This Page is Never Finished</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/ea960018-53ef-4082-a709-9b7edb94d9cb/Leonardo_Creative_The_Digital_Scream_for_Attention_A_Myspace_0.jpg" alt="The Digital Scream for Attention" loading="lazy">
-        <div class="nft-info">
-            <h3>The Digital Scream for Attention</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/057468dc-9e2c-4412-bf57-aef875bd6fda/Leonardo_Creative_A_Relationship_on_Hold_A_Friendster_request_0.jpg" alt="A Relationship on Hold" loading="lazy">
-        <div class="nft-info">
-            <h3>A Relationship on Hold</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/ade4144b-bb82-41a7-87e1-759bfba58cfc/Leonardo_Creative_Fatal_Exception_A_screen_showing_the_Blue_S_0.jpg" alt="Fatal Exception" loading="lazy">
-        <div class="nft-info">
-            <h3>Fatal Exception</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3cafbb4b-7729-453c-abbd-213316f9e894/Leonardo_Creative_The_Sound_of_a_New_Beginning_and_Many_Ends_0.jpg" alt="The Sound of a New Beginning (and Many Ends)" loading="lazy">
-        <div class="nft-info">
-            <h3>The Sound of a New Beginning (and Many Ends)</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3ce0351c-30cf-4cc0-a491-0258ebead35f/Leonardo_Creative_The_Ghost_in_the_Machine_A_lonely_Napster_l_0.jpg" alt="The Ghost in the Machine" loading="lazy">
-        <div class="nft-info">
-            <h3>The Ghost in the Machine</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/c5d888fb-a790-418d-8894-3a585caf8616/Leonardo_Creative_It_Really_Whips_the_Llamas_Ass_A_Winamp_med_0.jpg" alt="It Really Whips the Llama's Ass" loading="lazy">
-        <div class="nft-info">
-            <h3>It Really Whips the Llama's Ass</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/c0ea3155-47a2-4195-b024-e8572e763a64/Leonardo_Creative_The_Absurdity_of_Inaction_A_screensaver_of_0.jpg" alt="The Absurdity of Inaction" loading="lazy">
-        <div class="nft-info">
-            <h3>The Absurdity of Inaction</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/d05ebe17-75fd-47d7-abfe-438d3ba98bbf/Leonardo_Creative_The_Predecessor_to_a_Bug_A_stack_of_compute_0.jpg" alt="The Predecessor to a Bug" loading="lazy">
-        <div class="nft-info">
-            <h3>The Predecessor to a Bug</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3a4bbbfa-9b9c-491d-a3bd-ce09947a064f/Leonardo_Creative_The_Analog_Ghost_A_reeltoreel_tape_machine_0.jpg" alt="The Analog Ghost" loading="lazy">
-        <div class="nft-info">
-            <h3>The Analog Ghost</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/bb5d70ab-13fb-465b-8deb-10e40287f719/Leonardo_Creative_The_Heart_of_the_Beast_A_vacuum_tube_glowin_0.jpg" alt="The Heart of the Beast" loading="lazy">
-        <div class="nft-info">
-            <h3>The Heart of the Beast</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/d6cae861-3a3a-4fb0-82e6-94a74ee7899a/Leonardo_Creative_Crossed_Signals_A_telephone_switchboard_wit_0.jpg" alt="Crossed Signals" loading="lazy">
-        <div class="nft-info">
-            <h3>Crossed Signals</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/3ed98878-2f98-4347-9efa-09416e342fef/Leonardo_Creative_What_Hath_God_Wrought_A_telegraph_machine_c_0.jpg" alt="What Hath God Wrought?" loading="lazy">
-        <div class="nft-info">
-            <h3>What Hath God Wrought?</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/61f4be49-ec47-47d0-a869-8a0a3f5df5d2/Leonardo_Creative_A_Copy_of_a_Copy_of_a_Copy_A_fax_machine_cu_0.jpg" alt="A Copy of a Copy of a Copy" loading="lazy">
-        <div class="nft-info">
-            <h3>A Copy of a Copy of a Copy</h3>
-        </div>
-    </div>
-    
-    <div class="nft-item">
-        <img src="https://cdn.leonardo.ai/users/3d821868-2dc2-4cda-91b7-ab60fb564aa4/generations/708c1d47-4397-478d-aff2-cfc11c513354/Leonardo_Creative_Not_Enough_Space_A_single_obsolete_USB_10_d_0.jpg" alt="Not Enough Space" loading="lazy">
-        <div class="nft-info">
-            <h3>Not Enough Space</h3>
-        </div>
-    </div>
-    
-</div>
-<a href="https://opensea.io/assets/matic/0x0E268274e466E43F0CFA463ac3a6d3e0B33B8cC3">Buy on OpenSea</a>
+  </div>`;
+}
+
+// Scroll reveal
+function initReveal(){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+
+// Header hide on scroll
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const s=window.pageYOffset;
+  document.getElementById('header').classList.toggle('hide',s>lastScroll&&s>200);
+  lastScroll=s;
+});
+
+// Router
+window.addEventListener('hashchange',router);
+window.addEventListener('DOMContentLoaded',router);
+</script>
 </body>
 </html>
